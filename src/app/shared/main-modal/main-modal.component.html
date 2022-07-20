@@ -1,0 +1,10 @@
+<div>
+  <div class="modal-header bg-primary">
+    <h4 class="modal-title" id="modal-title">{{ titulo }}</h4>
+    <button type="button" class="btn btn-icon btn-danger btn-close-modal" (click)="cerrarModal()"><i class="fa fa-times"
+        aria-hidden="true"></i></button>
+  </div>
+  <div class="modal-body p-0">
+    <ng-content></ng-content>
+  </div>
+</div>

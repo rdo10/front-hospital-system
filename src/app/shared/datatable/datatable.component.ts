@@ -55,9 +55,9 @@ export class DatatableComponent implements OnInit, OnDestroy {
         });
       },
       rowCallback: (row, data: any) => {
-        $(row).find(".btn-medicos").on(
+        $(row).find(".btn-editar").on(
           "click",
-          (event) => {
+          (event) => { 
             this.accionEditar.emit({
 
               id: this.id = data.id,

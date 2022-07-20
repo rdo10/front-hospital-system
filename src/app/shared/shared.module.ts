@@ -5,12 +5,14 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { DatatableComponent } from './datatable/datatable.component';
 import { CardComponent } from './card/card.component';
 import { DataTablesModule } from 'angular-datatables';
+import { MainModalComponent } from './main-modal/main-modal.component';
 
 
 @NgModule({
   declarations: [
     DatatableComponent,
-    CardComponent
+    CardComponent,
+    MainModalComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { DataTablesModule } from 'angular-datatables';
 
   exports: [
     DatatableComponent,
-    CardComponent
+    CardComponent,
+    MainModalComponent
   ],
 })
 export class SharedModule { }

@@ -1,6 +1,6 @@
 <app-card [titulo]="'Listado de Categorias'">
   <div class="col-11">
-    <button type="button" class="btn-lg btn-success mb-3 btn-nuevo-hospital">Nueva Categoria</button>
-   <datatable [columns]="columns" [enpoint]="enpoint"></datatable>
+    <button type="button" class="btn-lg btn-success mb-3 btn-nuevo" (click)="abrirModal()">Nueva Categoria</button>
+   <datatable [columns]="columns" [enpoint]="enpoint" [modal]="modal"></datatable>
   </div>
 </app-card>
