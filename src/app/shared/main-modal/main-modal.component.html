@@ -7,4 +7,10 @@
   <div class="modal-body p-0">
     <ng-content></ng-content>
   </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="cerrarModal()"><i class="fa-close"></i>
+      Cancelar</button>
+    <button type="button" class="btn btn-success mr-5"><i class="far fa-save"></i>
+      Guardar</button>
+  </div>
 </div>

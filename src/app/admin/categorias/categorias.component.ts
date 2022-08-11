@@ -18,7 +18,8 @@ export class CategoriasComponent implements OnInit {
   columns: Array<object>
   public modal!: NgbModalRef;
   public enpoint = environment.url + 'todos'
-  
+  public modales = [];
+
   constructor(private categoriaServices: CategoriasService,
     private modalService: NgbModal) { }
 

@@ -31,6 +31,8 @@ export class ModalComponent implements OnInit {
   }
 
 
+
+
   cerrar() {
     this.modal.dismissAll();
   }
