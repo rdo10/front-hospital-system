@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { MainModalComponent } from 'src/app/shared/main-modal/main-modal.component';
 import { environment } from 'src/environments/environment';
 import { ModalComponent } from './modal/modal.component';
-import { CategoriasService } from './services/categorias.service';
+import { HospitalService } from './services/hospital.service';
 
 @Component({
   selector: 'app-categorias',
-  templateUrl: './categorias.component.html',
-  styleUrls: ['./categorias.component.css']
+  templateUrl: './hospitales.component.html',
+  styleUrls: ['./hospitales.component.css']
 })
-export class CategoriasComponent implements OnInit {
+export class HospitalesComponent implements OnInit {
 
-  public botones = [`<button class="btn btn-info btn-editar" type="button"><i class="fa fa-edit"></i></button>
-  <button class="btn btn-danger btn-delete type="button"><i class="fa fa-trash"></i></button> `]
+  public botones = [`<button class="btn btn-info btn-editar" type="button"><i class="fa fa-users"></i></button> `]
 
   columns: Array<object>
   public modal!: NgbModalRef;
   public enpoint = environment.url + 'todos'
   public modales = [];
+  medicoId:number = 0;
 
-  constructor(private categoriaServices: CategoriasService,
+  constructor(private hospitalServices: HospitalService,
     private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -33,15 +32,19 @@ export class CategoriasComponent implements OnInit {
     this.columns = [
 
       {
-        title: 'Codigo',
+        title: 'Nombre',
         data: 'title',
       },
       {
-        title: 'Nombre',
+        title: 'Ciudad',
         data: 'title'
       },
       {
-        title: 'Descripción',
+        title: 'Dirección',
+        data: 'title',
+      },
+      {
+        title: 'Nit',
         data: 'title',
       },
       {
@@ -55,15 +58,19 @@ export class CategoriasComponent implements OnInit {
 
     return this.columns;
   }
-
+ editar(event){
+  this.medicoId = event.id;
+  this.abrirModal();  
+ }
 
   abrirModal() {
     this.modal = this.modalService.open(ModalComponent, {
-      size: 'md',
+      size: 'xl',
       backdrop: 'static',
       keyboard: false,
     });
-    this.modal.componentInstance.titulo = 'Crear Categoria'
+    this.modal.componentInstance.id = this.medicoId; 
+    this.modal.componentInstance.titulo =  `Medicos del hospital ${this.medicoId} `
   }
 
 
