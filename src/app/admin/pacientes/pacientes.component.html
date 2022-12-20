@@ -1,0 +1,5 @@
+<app-card [titulo]="'Pacientes'">
+    <div class="col-11">
+     <datatable [columns]="columns" (accionEditar)="editar($event)" [enpoint]="enpoint"></datatable>
+    </div>
+  </app-card>

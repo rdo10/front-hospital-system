@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './core/layouts/footer/footer.component';
 import { HeaderComponent } from './core/layouts/header/header.component';
 import { SidebarComponent } from './core/layouts/sidebar/sidebar.component';
-import { MedicosComponent } from './admin/medicos/medicos.component';
 
 @NgModule({
   declarations: [
