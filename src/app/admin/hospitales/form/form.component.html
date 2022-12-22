@@ -1,0 +1,18 @@
+<app-card [titulo]="'Crear Hospital'">
+    <form action="#">
+        <label for="">Nombre:</label>
+        <p>
+            <input type="text" name="nombre">
+        <p>
+            <label for="">Direccion:</label>
+        <p>
+            <input type="text" name="direccion">
+        <p>
+    </form>
+     <div class="col-11">
+            <button type="button" routerLink="/hospitales" class="btn btn-danger"><i class="fa-close"></i>
+                Cancelar</button>
+              <button type="button" class="btn btn-success"><i class="far fa-save"></i>
+                Guardar</button>
+         </div>
+</app-card>

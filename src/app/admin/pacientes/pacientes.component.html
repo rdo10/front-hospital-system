@@ -1,5 +1,6 @@
 <app-card [titulo]="'Pacientes'">
-    <div class="col-11">
+    <div class="col-12">
+      <button class="btn-lg btn-success mb-3"><i class=" mr-2 fa fa-plus"></i>Agregar Pacientes</button>
      <datatable [columns]="columns" (accionEditar)="editar($event)" [enpoint]="enpoint"></datatable>
     </div>
   </app-card>

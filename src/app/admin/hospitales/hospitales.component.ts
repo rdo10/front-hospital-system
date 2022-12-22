@@ -73,5 +73,4 @@ export class HospitalesComponent implements OnInit {
     this.modal.componentInstance.titulo =  `Medicos del hospital ${this.medicoId} `
   }
 
-
 }

@@ -6,11 +6,12 @@ import { ModalComponent } from './modal/modal.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { HospitalesRoutingModule } from './hospitales-routing.module';
 import { HospitalesComponent } from './hospitales.component';
+import { FormComponent } from './form/form.component';
 
 
 
 @NgModule({
-  declarations: [HospitalesComponent,ModalComponent],
+  declarations: [HospitalesComponent,ModalComponent, FormComponent],
   imports: [
     CommonModule,
     RouterModule,
