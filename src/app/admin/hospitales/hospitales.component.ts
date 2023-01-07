@@ -18,6 +18,7 @@ export class HospitalesComponent implements OnInit {
   public enpoint = environment.url + 'hospitales'
   public modales = [];
   medicoId:number = 0;
+  hospital:string = '';
 
   constructor(private hospitalServices: HospitalService,
     private modalService: NgbModal) { }
@@ -60,6 +61,7 @@ export class HospitalesComponent implements OnInit {
   }
  editar(event){
   this.medicoId = event.id;
+  this.hospital = event.data.nombre;
   this.abrirModal();  
  }
 
@@ -70,7 +72,7 @@ export class HospitalesComponent implements OnInit {
       keyboard: false,
     });
     this.modal.componentInstance.id = this.medicoId; 
-    this.modal.componentInstance.titulo =  `Medicos del hospital ${this.medicoId} `
+    this.modal.componentInstance.titulo =  `Medicos del ${this.hospital} `
   }
 
 }
