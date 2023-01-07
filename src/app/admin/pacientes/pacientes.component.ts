@@ -11,7 +11,7 @@ export class PacientesComponent implements OnInit {
   public botones = [`<button class="btn btn-success btn-editar" type="button"><i class="fa fa-users"></i></button> `]
 
   columns: Array<object>
-  public enpoint = environment.url + 'todos'
+  public enpoint = environment.url + 'pacientes'
   constructor() { }
 
   ngOnInit(): void {
@@ -25,19 +25,19 @@ export class PacientesComponent implements OnInit {
 
       {
         title: 'Nombre',
-        data: 'title',
+        data: 'nombre',
       },
       {
         title: 'Ciudad',
-        data: 'title'
+        data: 'ciudad'
       },
       {
         title: 'Telefono',
-        data: 'title',
+        data: 'telefono',
       },
       {
         title: 'Correo',
-        data: 'title',
+        data: 'correo',
       },
       {
         title: 'Acciones',

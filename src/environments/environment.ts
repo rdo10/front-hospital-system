@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://jsonplaceholder.typicode.com/',
+  url: 'http://www.dev-hospital-back.co/',
   SECRET_KEY: 'Ber1g0',
   token: ''
 };

@@ -10,15 +10,16 @@ import { environment } from 'src/environments/environment';
 })
 export class ModalComponent implements OnInit {
   titulo = ''
-  id:number = 0;
+  id:number;
   columns: Array<object>
-  public enpoint = environment.url + 'todos'
+  public enpoint = environment.url + 'medicos-hospitales/';
   constructor(
     private modal: NgbModal
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
    this.columns =  this.cargarTabla();
+   this.enpoint = this.enpoint+this.id;
   }
 
 
@@ -28,19 +29,19 @@ export class ModalComponent implements OnInit {
 
       {
         title: 'Nombre',
-        data: 'title',
+        data: 'nombre',
       },
       {
         title: 'Ciudad',
-        data: 'title'
+        data: 'ciudad'
       },
       {
         title: 'Telefono',
-        data: 'title',
+        data: 'telefono',
       },
       {
         title: 'Correo',
-        data: 'title',
+        data: 'correo',
       },
     ];
 

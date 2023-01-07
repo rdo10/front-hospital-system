@@ -15,7 +15,7 @@ export class HospitalesComponent implements OnInit {
 
   columns: Array<object>
   public modal!: NgbModalRef;
-  public enpoint = environment.url + 'todos'
+  public enpoint = environment.url + 'hospitales'
   public modales = [];
   medicoId:number = 0;
 
@@ -33,19 +33,19 @@ export class HospitalesComponent implements OnInit {
 
       {
         title: 'Nombre',
-        data: 'title',
+        data: 'nombre',
       },
       {
         title: 'Ciudad',
-        data: 'title'
+        data: 'ciudad'
       },
       {
         title: 'Dirección',
-        data: 'title',
+        data: 'direccion',
       },
       {
         title: 'Nit',
-        data: 'title',
+        data: 'nit',
       },
       {
         title: 'Acciones',
