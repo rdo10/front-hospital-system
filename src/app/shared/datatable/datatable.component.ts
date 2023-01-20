@@ -24,6 +24,7 @@ export class DatatableComponent implements OnInit, OnDestroy {
   @Output() accionRerender = new EventEmitter<void>();
   @Output() accionEliminar = new EventEmitter<any>();
   @Output() accionEditar = new EventEmitter<any>();
+  @Output() accionVer = new EventEmitter<any>();
   // We use this trigger because fetching the list of persons can be quite long,
   // thus we ensure the data is fetched before rendering
   dtTrigger: Subject<any> = new Subject<any>();
@@ -69,7 +70,22 @@ export class DatatableComponent implements OnInit, OnDestroy {
 
           }
         );
-        $(row).find(".btn-delete").on(
+
+        $(row).find(".btn-ver").on(
+          "click",
+          (event) => { 
+            this.accionVer.emit({
+
+              id: this.id = data.id,
+              accion: 'ver',
+              data: data
+
+            });
+            this.accionBoton(this.id, this.modales, 'ver')
+
+          }
+        );
+        $(row).find(".btn-eliminar").on(
           "click",
           (event) => {
             this.accionEliminar.emit({
@@ -93,18 +109,11 @@ export class DatatableComponent implements OnInit, OnDestroy {
       });
   }
 
-
- 
-
-
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
 
-
-
   accionBoton(id: number, modal: Array<ModalObject>, tipo: string) {
-
     const abrirModal = modal?.filter((element) => element.tipo == tipo);
     if (abrirModal && abrirModal.length) {
       const modal = abrirModal[0];

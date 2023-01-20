@@ -1,22 +1,26 @@
 <app-card [titulo]="'Crear Hospital'">
-    <form>
+    <form [formGroup]="form">
         <div class="form-group">
           <label for="exampleInputEmail1">Nombre</label>
-          <input type="text" class="form-control" id="nombre"  placeholder="Nombre del Hospital">
+          <input type="text" formControlName="nombre" class="form-control" id="nombre"  placeholder="Nombre del Hospital">
           </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Ciudad</label>
-          <input type="text" class="form-control" id="ciudad" placeholder="Ciudad">
+          <input type="text" formControlName="ciudad" class="form-control" id="ciudad" placeholder="Ciudad">
+        </div>
+        <div class="form-group">
+          <label for="direccion">Telefono</label>
+          <input type="text" formControlName="telefono" class="form-control" id="direccion" placeholder="Direccion">
         </div>
         <div class="form-group">
           <label for="direccion">Dirección</label>
-          <input type="text" class="form-control" id="direccion" placeholder="Direccion">
+          <input type="text" formControlName="direccion" class="form-control" id="direccion" placeholder="Direccion">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Nit</label>
-          <input type="text" class="form-control" id="telefono" placeholder="Nit">
+          <input type="text" formControlName="nit" class="form-control" id="telefono" placeholder="Nit">
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <button type="submit" routerLink="/hospitales" class="btn btn-danger ml-3">Atrás</button>
+        <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button>
+        <button type="button" routerLink="/hospitales" class="btn btn-danger ml-3">Atrás</button>
       </form>
 </app-card>

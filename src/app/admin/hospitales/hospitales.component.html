@@ -1,6 +1,6 @@
 <app-card [titulo]="'Hospitales'">
   <div class="col-12">
     <button type="button" routerLink="/hospitales/nuevo" class="btn-lg btn-success mb-3"><i class=" mr-2 fa fa-plus"></i>Agregar Hospital</button>
-   <datatable [columns]="columns" (accionEditar)="editar($event)" [enpoint]="enpoint" [modales]="modales"></datatable>
+   <datatable [columns]="columns" (accionVer)="modalMedicos($event)" (accionEliminar)="eliminar($event)" (accionEditar)="editar($event)" [enpoint]="enpoint" [modales]="modales"></datatable>
   </div>
 </app-card>
