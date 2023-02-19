@@ -13,16 +13,19 @@ import { HospitalService } from '../services/hospital.service';
 export class FormComponent implements OnInit {
   public form: FormGroup;
   public status: string = '';
-  public titulo: string = 'Crear Hospital';
+  public titulo: string = '';
   public id:number;
   constructor(public fb: FormBuilder, public hospitalServices: HospitalService, public helpersevices: HelpersService, private route: Router,private activeRoute: ActivatedRoute) {
-    this.id = this.activeRoute.snapshot.params.id;}
+    this.id = this.activeRoute.snapshot.params.id;
+    if(this.id){
+      this.titulo = 'Editar Hospital';
+      this.getHospital();
+     }else{
+      this.titulo = 'Crear Hospital';
+     } 
+  }
 
   ngOnInit(): void {
-     if(this.id){
-      this.getHospital();
-      this.titulo == 'Editar datos del hospital';
-     } 
     this.crearFormulario();
   }
 
