@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Hospital } from 'src/app/models/hospital';
+import { Hospital, HospitalDto } from 'src/app/models/hospital';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -23,6 +23,13 @@ export class HospitalService {
     let params = "json="+json;
     let headers = new HttpHeaders().set('Content-Type' , 'application/x-www-form-urlencoded');
     return this.http.post<Hospital>(`${environment.url}hospitales`, params , {headers:headers});
+  }
+
+  update(id:number,dto:HospitalDto){
+    let json = JSON.stringify(dto);
+    let params = "json="+json;
+    let headers = new HttpHeaders().set('Content-Type' , 'application/x-www-form-urlencoded');
+    return this.http.put(`${environment.url}hospital/${id}`,params,{headers:headers});
   }
 
   delete(id:number){

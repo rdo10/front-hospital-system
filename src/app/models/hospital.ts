@@ -1,4 +1,4 @@
-export class Hospital{
+export interface Hospital{
     id?: number;
     nombre: string;
     ciudad: string;
@@ -6,3 +6,5 @@ export class Hospital{
     direccion: string;
     nit:number;
 }
+
+export interface HospitalDto extends Partial<Hospital>{}
