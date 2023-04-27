@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 import { ModalComponent } from './modal/modal.component';
@@ -7,6 +7,7 @@ import { FormComponent } from './form/form.component';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { HelpersService } from 'src/app/services/helpers.service';
+import { DatatableComponent } from 'src/app/shared/datatable/datatable.component';
 
 @Component({
   selector: 'app-categorias',
@@ -26,6 +27,7 @@ export class HospitalesComponent implements OnInit {
   public id: number;
   public status: string = '';
   public hospital: string = '';
+  @ViewChild('datatable') datatable: DatatableComponent;
 
   constructor(private hospitalServices: HospitalService,
     private modalService: NgbModal,
@@ -89,7 +91,6 @@ export class HospitalesComponent implements OnInit {
     this.id = event.id;
     this.route.navigateByUrl(`hospitales/editar/${this.id}`);
   }
-
   eliminar(event) {
     this.id = event.id;
     Swal.fire({
@@ -105,11 +106,13 @@ export class HospitalesComponent implements OnInit {
         this.status = 'success';
         this.hospitalServices.delete(this.id).subscribe((res: any) => {
           if (res.status == 'success')
-            Swal.fire(
-              'Eliminado!',
-              'el registro ha sido eliminado con exito.',
-              'success'
-            )
+          location.reload();
+          Swal.fire(
+            'Eliminado!',
+            'el registro ha sido eliminado con exito.',
+            'success'
+          )
+          return false;
         })
       } else {
         this.status = 'error';

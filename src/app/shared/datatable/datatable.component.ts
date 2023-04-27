@@ -121,9 +121,6 @@ export class DatatableComponent implements OnInit, OnDestroy {
     }
   }
 
-
-
-
   abrirModal(modal: ModalObject, idModal: number) {
     this.modal = this.modalService.open(modal.modal, {
       size: modal.size,
