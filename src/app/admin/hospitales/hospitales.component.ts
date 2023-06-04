@@ -98,6 +98,7 @@ export class HospitalesComponent implements OnInit {
       text: "Se eliminará este registro!",
       icon: 'warning',
       showCancelButton: true,
+      cancelButtonText: "Cancelar",
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, eliminar esto!'
@@ -106,7 +107,6 @@ export class HospitalesComponent implements OnInit {
         this.status = 'success';
         this.hospitalServices.delete(this.id).subscribe((res: any) => {
           if (res.status == 'success')
-          location.reload();
           Swal.fire(
             'Eliminado!',
             'el registro ha sido eliminado con exito.',
